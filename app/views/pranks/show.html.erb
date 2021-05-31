@@ -1,26 +1,28 @@
 <div class="container-prank">
-  <div class="top d-flex flex-column justify-content-center align-items-center ml-0 mb-5">
+  <div class="top d-flex flex-column justify-content-center align-items-center">
       <h2 class="text-center"><%= @prank.name %></h2>
-    <div class="floating ml-0" style="height: 150px; width: 150px;">
-    <%= @prank.photo.attached? ? cl_image_tag(@prank.photo.key) : "no photo" %>
+    <div class="floating align-items-center ml-5" style="height: 150px; width: 150px;">
+    <%= @prank.photo.attached? ? cl_image_tag(@prank.photo.key) : cl_image_tag("https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621747327/homeless-chic_n3ntvs.png") %>
     </div>
   </div>
-    <div class="bottom d-flex justify-content-center mt-3 flex-wrap">
-      <div class="info text-center border border-dark p-3" style="width: 400px">
+    <div class="bottom d-flex justify-content-center flex-wrap">
+      <div class="info text-center p-3 border border-dark" style="width: 400px">
       <p><strong>Price:</strong></br><%= @prank.price %> yen</p>
       <p><strong>Location: </strong></br><%= @prank.city %></p>
       <p><strong>Description:</strong></br><%= @prank.content %></p>
     </div>
+    <% unless current_user == @prank.user %>
       <div class="form d-flex justify-content-center align-items-center p-3 border border-dark">
     <%= simple_form_for [@prank, @booking] do |f| %>
       <%= f.input :date, html5: true, :input_html => { :value => Date.today} %>
       <%= f.input :description, placeholder: 'special instructions', inline_label: 'description' %>
       <%= f.submit class: 'btn btn-flat mb-3 mt-3', value: "Book" %>
     <% end %>
+    <% end %>
 </div>
 
   </div>
     <div class="d-flex justify-content-center mt-5">
-      <%= link_to 'Go back', pranks_path, class: 'btn btn-flat mb-3 mt-3 w-10' %>
+      <%= link_to 'Go back', pranks_path, class: 'btn btn-flat mb-3 mt-3' %>
     </div>
   </div>

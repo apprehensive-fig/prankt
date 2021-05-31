@@ -73,31 +73,21 @@ h3 {
 .card-test {
   background-color: white;
   height: 180px;
-  width: 300px;
+  width: 340px;
   border-radius: 15px;
   display: flex;
-  overflow: hidden;
-  background-color: white;
-  width: 340px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  flex-grow: 1;
-  padding-left: 20px;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  box-shadow: 0 0px 16px rgba(0,0,0,0.3);
 }
 
 .card-test img {
-  padding-left: 15px;
-  height: 100px;
+  width: 100px;
+  padding-left: 20px;
 }
 
 .card-test:hover {
   transition: 0.3s ease-in-out;
   transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .card-product {
@@ -109,7 +99,6 @@ h3 {
   justify-content: flex-start;
   margin-top: 20px;
   display: flex;
-  box-shadow: 0 0 24px rgba(0,0,0,0.1);
 }
 
 .card-product img {

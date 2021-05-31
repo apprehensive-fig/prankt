@@ -1,6 +1,6 @@
-<div class="bg-white">
-    <div class="container">
-    <div class="search">
+<div class="container mt-3 d-flex flex-column justify-content-center flex-wrap">
+  <h1>All pranks</h1>
+    <div class="search pt-3">
       <%= form_tag pranks_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -12,17 +12,14 @@
       <% end %>
     </div>
   </div>
-</div>
-<div class="title mt-3 mb-3">
-  <h1>All pranks</h1>
   <div class="container-pranks">
-    <div class="container-cards pt-5">
+    <div class="container-cards pt-3">
       <div class="card-prank">
         <% @pranks.each do |prank| %>
-          <div class="card-test">
+          <div class="card-test border border-dark">
             <%= prank.photo.attached? ? cl_image_tag(prank.photo.key) : cl_image_tag("https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621747327/homeless-chic_n3ntvs.png") %>
             <div class='ml-3 d-flex flex-column justify-content-between h-100 p-4 '>
-              <div class="prank-name"><%= link_to prank.name, prank_path(prank) %></div>
+             <div class="prank-name"><%= link_to prank.name, prank_path(prank) %></div>
               <div class='d-flex mt-3 justify-content-between'>
               </div>
             </div>
@@ -32,3 +29,4 @@
     </div>
   </div>
 </div>
+</br>

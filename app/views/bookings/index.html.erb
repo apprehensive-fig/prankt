@@ -7,7 +7,7 @@
   </br></br>
         <h3>Pranks booked</h3>
         <% @bookings.each do |booking| %>
-          <div class="card-product" style="width: 500px">
+          <div class="card-product border border-dark" style="width: 600px">
             <%= booking.prank.photo.attached? ? cl_image_tag(booking.prank.photo.key) : cl_image_tag("https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621747327/homeless-chic_n3ntvs.png") %>
             <div class="card-product-infos">
               <div class="w-100">
@@ -27,8 +27,8 @@
                       </div>
                     </div>
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                      <div class="card-body">
-                        <%= booking.photo.attached? ? cl_image_tag(booking.photo.key, class: "w-100"): "https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621745766/yann-eating_qjb5z4.png" %>
+                      <div class="card-body mb-0">
+                        <%= booking.photo.attached? ? cl_image_tag(booking.photo.key, class: "w-100") : cl_image_tag("https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621747327/homeless-chic_n3ntvs.png") %>
                       </div>
                     </div>
                   </div>
@@ -38,13 +38,14 @@
           </div>
         <% end %>
       <% end %>
+    <%= link_to 'All pranks', pranks_path, class: 'btn btn-flat mb-3 mt-3 w-10' %>
     </div>
-    <div class="container-booking d-flex flex-column align-items-center pt-5">
+    <div class="container-booking d-flex flex-column align-items-center">
       <% if @bookings_as_owner.present? %>
         <h3>Pranks to pull</h3>
         <% @bookings_as_owner.each do |booking| %>
           <% if current_user == booking.prank.user %>
-            <div class="card-product" style="width: 600px">
+            <div class="card-product border border-dark" style="width: 600px">
               <%= image_tag "https://res.cloudinary.com/dzwpbkn3u/image/upload/v1621747327/homeless-chic_n3ntvs.png" %>
               <div class="card-product-infos">
                 <div>
@@ -52,7 +53,7 @@
                   <p><%= booking.date.strftime('%A, %b %d') %></p>
                   <p><%= booking.description %></p>
                 </div>
-                <div class="card-product-actions">
+                <div class="card-product-actions d-flex flex-row justify-content-center">
                   <% if booking.pending? %>
                     <%= simple_form_for booking do |f| %>
                       <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
@@ -83,7 +84,7 @@
           <% end %>
         <% end %>
     <% end %>
-    <%= link_to 'All pranks', pranks_path, class: 'btn btn-flat mb-3 mt-3 w-10' %>
     </div>
   </div>
+  <%= link_to 'All pranks', pranks_path, class: 'btn btn-flat mb-3 mt-3 w-10' %>
 </div>
