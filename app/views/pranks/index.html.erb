@@ -1,9 +1,5 @@
 <div class="bg-white">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://cdn.dribbble.com/users/3347395/screenshots/8929289/media/6018c0ee5221aaac40add5132baf70ea.png?compress=1&resize=1600x1200);">
     <div class="container">
-      <h1>Prankt brings <strong>creative pranks</strong> to <strong>creative people</strong>!</h1>
-    </br>
-    <p>Search for pranks below, and modify your own!</p>
     <div class="search">
       <%= form_tag pranks_path, method: :get do %>
         <%= text_field_tag :query,
@@ -19,8 +15,6 @@
 </div>
 <div class="title mt-3 mb-3">
   <h1>All pranks</h1>
-</div>
-<div class="background-container" style="background-image: url(https://res.cloudinary.com/dzwpbkn3u/image/upload/v1622013619/background_fwygbj.png);">
   <div class="container-pranks">
     <div class="container-cards pt-5">
       <div class="card-prank">

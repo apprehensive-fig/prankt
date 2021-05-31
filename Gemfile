@@ -5,8 +5,12 @@ ruby '2.6.6'
 
 #added
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'devise'
 gem 'faker'
+gem 'cloudinary', '~> 1.16.0'
+gem 'pundit'
+gem 'pg_search', '~> 2.3.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
@@ -64,10 +68,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
-gem 'faker'
-gem 'cloudinary', '~> 1.16.0'
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'pundit'
-gem 'pg_search', '~> 2.3.0'
-
